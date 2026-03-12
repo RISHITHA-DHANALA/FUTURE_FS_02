@@ -4,6 +4,7 @@ const form = document.getElementById("leadForm");
 const table = document.getElementById("leadTable");
 
 displayLeads();
+updateStats();
 
 form.addEventListener("submit", function(e){
 
@@ -22,6 +23,8 @@ leads.push(lead);
 saveLeads();
 
 displayLeads();
+
+updateStats();
 
 form.reset();
 
@@ -58,10 +61,29 @@ saveLeads();
 
 displayLeads();
 
+updateStats();
+
 }
 
 function saveLeads(){
+localStorage.setItem("leads",JSON.stringify(leads));
+}
 
-localStorage.setItem("leads", JSON.stringify(leads));
+function updateStats(){
 
+document.getElementById("total").innerText = leads.length;
+
+document.getElementById("new").innerText =
+leads.filter(l=>l.status==="New").length;
+
+document.getElementById("contacted").innerText =
+leads.filter(l=>l.status==="Contacted").length;
+
+document.getElementById("converted").innerText =
+leads.filter(l=>l.status==="Converted").length;
+
+}
+
+function toggleTheme(){
+document.body.classList.toggle("dark");
 }
