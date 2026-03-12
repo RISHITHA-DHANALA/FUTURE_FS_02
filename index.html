@@ -18,6 +18,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
 <h2>Mini CRM</h2>
 
 <ul>
+
 <li onclick="showSection('dashboard')">
 <i class="fa fa-chart-line"></i> Dashboard
 </li>
@@ -29,6 +30,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
 <li onclick="showSection('settings')">
 <i class="fa fa-gear"></i> Settings
 </li>
+
 </ul>
 
 <button onclick="toggleTheme()">Toggle Theme</button>
@@ -42,7 +44,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
 
 <div id="dashboard" class="section">
 
-<h1>Lead Dashboard</h1>
+<h1>Dashboard</h1>
 
 <div class="cards">
 
@@ -90,9 +92,11 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
 <input type="text" id="source" placeholder="Source">
 
 <select id="status">
+
 <option value="New">New</option>
 <option value="Contacted">Contacted</option>
 <option value="Converted">Converted</option>
+
 </select>
 
 <textarea id="notes" placeholder="Notes"></textarea>
@@ -101,7 +105,8 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
 
 </form>
 
-<h2>Leads</h2>
+
+<h2>Lead List</h2>
 
 <table>
 
@@ -129,9 +134,11 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
 
 <h2>Settings</h2>
 
-<p>This is a simple settings panel.</p>
+<p><b>Theme:</b> Use toggle button in sidebar</p>
 
-<p>You can add CRM preferences here later.</p>
+<p><b>Total Leads Stored:</b> <span id="settingsTotal">0</span></p>
+
+<button onclick="clearData()">Clear All Leads</button>
 
 </div>
 
