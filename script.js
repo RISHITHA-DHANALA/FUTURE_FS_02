@@ -1,27 +1,25 @@
-let leads = [];
+let leads = JSON.parse(localStorage.getItem("leads")) || [];
 
 const form = document.getElementById("leadForm");
 const table = document.getElementById("leadTable");
+
+displayLeads();
 
 form.addEventListener("submit", function(e){
 
 e.preventDefault();
 
-let name = document.getElementById("name").value;
-let email = document.getElementById("email").value;
-let source = document.getElementById("source").value;
-let status = document.getElementById("status").value;
-let notes = document.getElementById("notes").value;
-
 let lead = {
-name: name,
-email: email,
-source: source,
-status: status,
-notes: notes
+name: document.getElementById("name").value,
+email: document.getElementById("email").value,
+source: document.getElementById("source").value,
+status: document.getElementById("status").value,
+notes: document.getElementById("notes").value
 };
 
 leads.push(lead);
+
+saveLeads();
 
 displayLeads();
 
@@ -31,22 +29,39 @@ form.reset();
 
 function displayLeads(){
 
-table.innerHTML = "";
+table.innerHTML="";
 
-for(let i=0;i<leads.length;i++){
+leads.forEach((lead,index)=>{
 
 let row = `
 <tr>
-<td>${leads[i].name}</td>
-<td>${leads[i].email}</td>
-<td>${leads[i].source}</td>
-<td>${leads[i].status}</td>
-<td>${leads[i].notes}</td>
+<td>${lead.name}</td>
+<td>${lead.email}</td>
+<td>${lead.source}</td>
+<td>${lead.status}</td>
+<td>${lead.notes}</td>
+<td><button onclick="deleteLead(${index})">Delete</button></td>
 </tr>
 `;
 
 table.innerHTML += row;
 
+});
+
 }
+
+function deleteLead(index){
+
+leads.splice(index,1);
+
+saveLeads();
+
+displayLeads();
+
+}
+
+function saveLeads(){
+
+localStorage.setItem("leads", JSON.stringify(leads));
 
 }
