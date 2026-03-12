@@ -1,39 +1,94 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Mini CRM</title>
+
+<title>Mini CRM Dashboard</title>
+
 <link rel="stylesheet" href="style.css">
+
+<!-- Font Awesome Icons -->
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
 </head>
 
 <body>
 
-<h1>Mini CRM - Lead Management</h1>
+<div class="sidebar">
+
+<h2>Mini CRM</h2>
+
+<ul>
+<li><i class="fa fa-chart-line"></i> Dashboard</li>
+<li><i class="fa fa-users"></i> Leads</li>
+<li><i class="fa fa-gear"></i> Settings</li>
+</ul>
+
+<button onclick="toggleTheme()">Toggle Theme</button>
+
+</div>
+
+
+<div class="main">
+
+<h1>Lead Dashboard</h1>
+
+<div class="cards">
+
+<div class="card">
+<i class="fa fa-users"></i>
+<h3>Total Leads</h3>
+<p id="total">0</p>
+</div>
+
+<div class="card">
+<i class="fa fa-user-plus"></i>
+<h3>New</h3>
+<p id="new">0</p>
+</div>
+
+<div class="card">
+<i class="fa fa-phone"></i>
+<h3>Contacted</h3>
+<p id="contacted">0</p>
+</div>
+
+<div class="card">
+<i class="fa fa-check-circle"></i>
+<h3>Converted</h3>
+<p id="converted">0</p>
+</div>
+
+</div>
+
 
 <h2>Add Lead</h2>
 
 <form id="leadForm">
 
-<input type="text" id="name" placeholder="Name" required><br><br>
+<input type="text" id="name" placeholder="Name" required>
 
-<input type="email" id="email" placeholder="Email" required><br><br>
+<input type="email" id="email" placeholder="Email" required>
 
-<input type="text" id="source" placeholder="Source"><br><br>
+<input type="text" id="source" placeholder="Source">
 
 <select id="status">
 <option value="New">New</option>
 <option value="Contacted">Contacted</option>
 <option value="Converted">Converted</option>
-</select><br><br>
+</select>
 
-<textarea id="notes" placeholder="Notes"></textarea><br><br>
+<textarea id="notes" placeholder="Notes"></textarea>
 
 <button type="submit">Add Lead</button>
 
 </form>
 
+
 <h2>Leads</h2>
 
-<table border="1">
+<table>
+
 <thead>
 <tr>
 <th>Name</th>
@@ -48,6 +103,8 @@
 <tbody id="leadTable"></tbody>
 
 </table>
+
+</div>
 
 <script src="script.js"></script>
 
