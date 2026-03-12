@@ -13,7 +13,7 @@ This project demonstrates how businesses track potential clients coming from web
 
 **Live Website**
 
-https://your-rishitha-dhanala.github.io/FUTURE_FS_02/
+https://rishitha-dhanala.github.io/FUTURE_FS_02/
 
 **Features**
 
