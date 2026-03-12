@@ -87,3 +87,5 @@ leads.filter(l=>l.status==="Converted").length;
 function toggleTheme(){
 document.body.classList.toggle("dark");
 }
+
+showSection("dashboard");
